@@ -46,7 +46,7 @@ for row in range(26):
 	rowOffset = row * 0x20 # Jump 32 bytes for each row.
 	# Read each cell from the row an store into this list
 	# Skips the first row as it just contains 0x10 cells (border cells) 
-	cols = [process.read(0x01005700 + 0x20 + rowOffset + byteOffset) & 0xFF for byteOffset in range(32)]
+	cols = [process.read(0x01005700 + 0x20 + rowOffset + byteOffset) & 0xFF for byteOffset in range(32)] # This line of code is ugly and I really regret making it. I'm sorry. One day I'll fix it, I promise.
 
 	# The first byte of a row is always 0x10 if not outside the map range
 	# All cells outside the map are 0x0F
